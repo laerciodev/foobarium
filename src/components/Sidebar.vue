@@ -40,7 +40,9 @@ import Link from '@/components/Link.vue';
 }
 
 .container-logo {
-  padding: 75px 0 65px 65px;
+  padding: 75px 0 65px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .border-bottom-logo {
