@@ -1,17 +1,20 @@
 <template>
   <li class="link-item">
-    <router-link :to="`/${value !== 'posts' ? value : '' }`" class="link">
+    <router-link :to="link" class="link">
       {{ value }}
     </router-link>
   </li>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface Props {
   value?: string,
 }
 
 const props = defineProps<Props>();
+const link = computed(() => props.value !== 'posts' ? `/${props.value}` : '/' );
 
 </script>
 
