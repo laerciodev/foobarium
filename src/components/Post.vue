@@ -24,5 +24,6 @@ import CommentsCountPost from '@/components/CommentsCountPost.vue';
   border-radius: 15px;
   padding: 24px 30px 54px 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 </style>
