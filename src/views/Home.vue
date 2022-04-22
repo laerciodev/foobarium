@@ -7,18 +7,9 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import Sidebar from '@/components/Sidebar'
 
-export default defineComponent({
-  components: {
-    Sidebar
-  },
-  setup() {
-
-  },
-})
 </script>
 
 <style lang="scss" scoped>
