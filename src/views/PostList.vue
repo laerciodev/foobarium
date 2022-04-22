@@ -1,8 +1,13 @@
 <template>
   <h2 class="title">posts</h2>
+  <ul class="post-list-container">
+    <Post />
+    <Post />
+  </ul>
 </template>
 
-<script>
+<script setup lang="ts">
+import Post from '@/components/Post.vue'
 
 </script>
 <style lang="scss" scoped>
@@ -17,4 +22,10 @@
   border-bottom: 1px solid #fff;
 }
 
+.post-list-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 62px;
+  margin-top: 48px;
+}
 </style>
