@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home.vue';
-import Posts from '@/views/Posts.vue';
+import PostList from '@/views/PostList.vue';
 import Users from '@/views/Users.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home,
     children: [
-      { path: '', name: 'Posts', component: Posts },
+      { path: '', name: 'Posts', component: PostList },
       { path: '/users', name: 'Users', component: Users }
     ],
   },
