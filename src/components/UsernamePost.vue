@@ -1,9 +1,9 @@
 <template>
-  <p class="username">
-    <Avatar />
+  <div class="username-container">
+    <Avatar class="avatar-icon" />
     <span class="author">John Username</span>
     <span class="posts-count">12 posts</span>
-  </p>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,12 +12,11 @@ import Avatar from '@/assets/avatar.svg';
 </script>
 
 <style lang="scss" scoped>
-.username {
+.username-container {
   color: #DDD;
   cursor: pointer;
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -31,5 +30,13 @@ import Avatar from '@/assets/avatar.svg';
   font-size: 14px;
   line-height: 18px;
   color: #CCC;
+}
+
+.avatar-icon {
+  margin-right: 18px;
+}
+
+.author {
+  margin-right: 15px;
 }
 </style>
