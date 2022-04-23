@@ -23,6 +23,7 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 .post-item-container {
+  cursor: pointer;
   width: 240px;
   flex-grow: 1;
   min-width: 25%;
