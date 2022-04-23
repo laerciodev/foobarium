@@ -1,3 +1,3 @@
 <template>
-  <p>Users</p>
+  Post
 </template>
