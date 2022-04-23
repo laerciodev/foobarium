@@ -17,19 +17,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import PostItem from '@/components/PostItem.vue';
 import { Post } from '@/types';
 
 const store = useStore();
-const data = await store.dispatch('getPosts');
-const posts = ref<Array<Post>>([]);
+const posts = computed(() => store.getters.getPosts);
 
-const chunkSize = 3;
-for(let i = 0; i < data.length; i += chunkSize) {
-	posts.value.push(data.slice(i, i + chunkSize))
-}
+onMounted(async () => {
+  await store.dispatch('fetchPosts');
+});
 
 </script>
 <style lang="scss" scoped>
