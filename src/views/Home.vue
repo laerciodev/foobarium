@@ -2,7 +2,7 @@
   <div class="container-home">
     <Sidebar />
     <Suspense>
-      <PostList />
+      <router-view></router-view>
     </Suspense>
   </div>
 </template>
