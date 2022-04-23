@@ -1,6 +1,6 @@
 <template>
   <li class="link-item">
-    <router-link :to="link" class="link">
+    <router-link :to="'/'" class="link">
       {{ value }}
     </router-link>
   </li>
@@ -14,7 +14,6 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-const link = computed(() => props.value !== 'posts' ? `/${props.value}` : '/' );
 
 </script>
 
