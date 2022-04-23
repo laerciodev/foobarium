@@ -16,7 +16,6 @@ import { Post } from '@/types';
 
 const props = defineProps<{
   post: Post,
-  index?: number,
 }>();
 
 </script>
