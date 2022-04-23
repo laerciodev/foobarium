@@ -1,9 +1,12 @@
 <template>
-  <h2 class="title">
-    Cervus sequi vergo advoco textor demum capitulus conqueror
-    quam voluptas crudelis.
-  </h2>
+  <h2 class="title">{{ title }}</h2>
 </template>
+
+<script setup lang="ts">
+const props = defineProps<{
+  title: string
+}>()
+</script>
 
 <style lang="scss" scoped>
 .title {
