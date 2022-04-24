@@ -11,6 +11,7 @@
     {{ post?.body }}
   </article>
   <CommentPost />
+  <CommentsList />
 </template>
 
 <script setup lang="ts">
@@ -19,6 +20,7 @@ import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import UsernamePost from '@/components/UsernamePost.vue';
 import CommentPost from '@/components/CommentPost.vue';
+import CommentsList from '@/components/CommentsList.vue';
 import BackButtonSVG from '@/assets/back-button.svg';
 
 const store = useStore();
