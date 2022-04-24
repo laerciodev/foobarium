@@ -1,9 +1,17 @@
 <template>
   <div class="comments-title">Comments</div>
-  <p class="empty-comments-message">No comments</p>
+  <p v-if="comments.length > 0">has comments</p>
+  <p v-else class="empty-comments-message">No comments</p>
 </template>
 
 <script setup lang="ts">
+import { Comment } from '@/types';
+
+interface Props {
+  comments: Array<Comment>
+}
+
+const props = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

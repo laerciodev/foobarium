@@ -11,7 +11,7 @@
     {{ post?.body }}
   </article>
   <CommentPost @send-comment="sendComment" />
-  <CommentsList />
+  <CommentsList :comments="comments" />
 </template>
 
 <script setup lang="ts">
@@ -29,6 +29,7 @@ const router = useRouter();
 
 const id = ref<number>();
 const post = computed(() => store.getters.getPostById(id.value));
+const comments = computed(() => store.getters.getComments)
 
 function sendComment(comment: string) {
   const payload = {
@@ -40,7 +41,14 @@ function sendComment(comment: string) {
   store.dispatch('addComment', payload)
 }
 
-onMounted(() => { id.value = parseInt(route.params.id as string, 10) })
+function setId() {
+  id.value = parseInt(route.params.id as string, 10);
+}
+
+onMounted(async () => {
+  setId();
+  await store.dispatch('fetchCommentsByPost', id.value);
+})
 
 function goToHome() {
   router.push('/')
