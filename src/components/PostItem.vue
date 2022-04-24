@@ -1,5 +1,5 @@
 <template>
-  <div class="post-item-container">
+  <div class="post-item-container" @click="goToPost">
     <UsernamePost />
     <TitlePost :title="post.title" />
     <ArticlePost />
@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import UsernamePost from '@/components/UsernamePost.vue';
 import TitlePost from '@/components/TitlePost.vue';
 import ArticlePost from '@/components/ArticlePost.vue';
@@ -17,6 +18,10 @@ import { Post } from '@/types';
 const props = defineProps<{
   post: Post,
 }>();
+
+const router = useRouter();
+
+const goToPost = () => router.push(`/post/${props.post.id}`);
 
 </script>
 
