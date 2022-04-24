@@ -1,8 +1,8 @@
 <template>
   <div class="username-container">
     <AvatarIcon
-      :width="isYou && '24px'"
-      :height="isYou && '24px'"
+      :width="isYou ? '24px' : '40px'"
+      :height="isYou ? '24px' : '40px'"
       class="avatar-icon"
     />
     <span class="author">{{ isYou ? 'You' : 'John Username' }}</span>
@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import AvatarIcon from '@/components/AvatarIcon.vue';
 interface Props {
-  isYou: boolean
+  isYou?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
