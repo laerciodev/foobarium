@@ -1,14 +1,24 @@
 <template>
   <div class="username-container">
-    <Avatar class="avatar-icon" />
-    <span class="author">John Username</span>
-    <span class="posts-count">12 posts</span>
+    <AvatarIcon
+      :width="isYou && '24px'"
+      :height="isYou && '24px'"
+      class="avatar-icon"
+    />
+    <span class="author">{{ isYou ? 'You' : 'John Username' }}</span>
+    <span v-if="!isYou" class="posts-count">12 posts</span>
   </div>
 </template>
 
 <script setup lang="ts">
-import Avatar from '@/assets/avatar.svg';
+import AvatarIcon from '@/components/AvatarIcon.vue';
+interface Props {
+  isYou: boolean
+}
 
+const props = withDefaults(defineProps<Props>(), {
+  isYou: false,
+});
 </script>
 
 <style lang="scss" scoped>
