@@ -27,8 +27,11 @@ import UsernamePost from '@/components/UsernamePost.vue';
 const comment = ref<string>('')
 const isEmptyComment = computed(() => comment.value === '')
 
+const emit = defineEmits(['send-comment'])
+
 function sendComment() {
   if (isEmptyComment.value) return;
+  emit('send-comment', comment.value);
 }
 
 </script>

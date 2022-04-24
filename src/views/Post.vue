@@ -10,7 +10,7 @@
   <article class="article">
     {{ post?.body }}
   </article>
-  <CommentPost />
+  <CommentPost @send-comment="$emit('send-comment', $event)" />
   <CommentsList />
 </template>
 
