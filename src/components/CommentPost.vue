@@ -7,16 +7,29 @@
       id=""
       cols="30"
       rows="1"
+      v-model="comment"
       ></textarea>
   </div>
   <div class="username-button-container">
     <UsernamePost :isYou="true" />
-    <button class="send-button">send</button>
+    <button
+      :class="['send-button', isEmptyComment && 'disabled']"
+      @click="sendComment">
+      send
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue';
 import UsernamePost from '@/components/UsernamePost.vue';
+
+const comment = ref<string>('')
+const isEmptyComment = computed(() => comment.value === '')
+
+function sendComment() {
+  if (isEmptyComment.value) return;
+}
 
 </script>
 
@@ -37,7 +50,7 @@ import UsernamePost from '@/components/UsernamePost.vue';
 
 .textarea {
   background: rgba(255, 255, 255, 0.1);
-  color:  rgba(255, 255, 255, 0.25);;
+  color:  rgba(255, 255, 255, 0.25);
   border: 1px solid #747784;
   border-radius: 5px;
   padding: 15px 0 20px 25px;
@@ -66,5 +79,11 @@ import UsernamePost from '@/components/UsernamePost.vue';
   line-height: 21px;
   border: none;
   cursor: pointer;
+
+  &.disabled {
+    background: #545760;
+    color: rgba(255, 255, 255, 0.25);
+    cursor: not-allowed;
+  }
 }
 </style>
