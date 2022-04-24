@@ -10,7 +10,7 @@
   <article class="article">
     {{ post?.body }}
   </article>
-  <CommentPost @send-comment="$emit('send-comment', $event)" />
+  <CommentPost @send-comment="sendComment" />
   <CommentsList />
 </template>
 
@@ -29,6 +29,16 @@ const router = useRouter();
 
 const id = ref<number>();
 const post = computed(() => store.getters.getPostById(id.value));
+
+function sendComment(comment: string) {
+  const payload = {
+    post_id: id.value,
+    name: 'Vimala Iyengar LLD',
+    email: 'vimala_iyengar_lld@zboncak.net',
+    body: comment
+    };
+  store.dispatch('addComment', payload)
+}
 
 onMounted(() => { id.value = parseInt(route.params.id as string, 10) })
 
