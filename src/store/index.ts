@@ -13,11 +13,13 @@ export default createStore({
   },
   getters: {
     getPosts: (state) => chunkArray(state.posts, 3),
+    getPostById: (state) => (id) => state.posts.find(
+      post => post.id === id
+    )
   },
   actions: {
     async fetchPosts({ commit, dispatch }) {
       const url = `${BASE_URL}/posts`;
-      const users = await dispatch('fetchUsers');
       const { data: posts } = await axios.get(url);
       commit('SET_POSTS', posts);
     },
