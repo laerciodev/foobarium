@@ -1,6 +1,5 @@
 <template>
-  <main class="main">
-    <h2 class="title">posts</h2>
+  <h2 class="title">posts</h2>
     <div class="posts-container">
       <div class="chunk-posts-container"
         v-for="(chunkPosts, index) in posts"
@@ -11,13 +10,12 @@
           :key="post.id"
           :post="post"
         />
-      </div>
     </div>
-  </main>
+</div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { defineProps, computed } from 'vue';
 import { useStore } from 'vuex';
 import PostItem from '@/components/PostItem.vue';
 import { Post } from '@/types';
@@ -25,20 +23,8 @@ import { Post } from '@/types';
 const store = useStore();
 const posts = computed(() => store.getters.getPosts);
 
-onMounted(async () => {
-  await store.dispatch('fetchPosts');
-});
-
 </script>
 <style lang="scss" scoped>
-.main {
-  width: calc(100% - 433px);
-  height: 100%;
-  background: #41434B;
-  padding: 50px 60px 0 60px;
-  overflow-y: auto;
-}
-
 .title {
   font-weight: 700;
   font-size: 36px;
