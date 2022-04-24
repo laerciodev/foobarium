@@ -32,7 +32,7 @@ onMounted(async () => {
   width: calc(100% - 433px);
   height: 100%;
   background: #41434B;
-  padding: 50px 60px 0 60px;
+  padding: 50px 60px 50px 60px;
   overflow-y: auto;
 }
 
