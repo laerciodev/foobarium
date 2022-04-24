@@ -1,5 +1,5 @@
 <template>
-  <div class="back-button">
+  <div @click="goToHome" class="back-button">
     <BackButtonSVG />
     Back
   </div>
@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, computed } from 'vue';
+import { onMounted, computed, ref, watch } from 'vue';
 import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import UsernamePost from '@/components/UsernamePost.vue';
 import CommentPost from '@/components/CommentPost.vue';
 import CommentsList from '@/components/CommentsList.vue';
@@ -25,7 +25,16 @@ import BackButtonSVG from '@/assets/back-button.svg';
 
 const store = useStore();
 const route = useRoute();
-const post = computed(() => store.getters.getPostById(1283));
+const router = useRouter();
+
+const id = ref<number>();
+const post = computed(() => store.getters.getPostById(id.value));
+
+onMounted(() => { id.value = parseInt(route.params.id as string, 10) })
+
+function goToHome() {
+  router.push('/')
+}
 
 </script>
 
