@@ -37,7 +37,7 @@ export default createStore({
       const { data: comments } = await axios.get(url, { headers });
       commit('SET_COMMENTS', comments);
     },
-    async addComment(payload) {
+    async addComment({ dispatch }, payload) {
       const url = `${BASE_URL}/posts/${payload.post_id}/comments`;
       const headers = {
         Authorization: `Bearer ${TOKEN}`,
@@ -45,6 +45,7 @@ export default createStore({
         'Content-type': 'application/json'
       };
       await axios.post(url, payload, { headers });
+      dispatch('fetchCommentsByPost', payload.post_id)
     },
   },
   modules: {
