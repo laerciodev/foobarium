@@ -1,10 +1,14 @@
 <template>
   <div class="comments-title">Comments</div>
-  <p v-if="comments.length > 0">has comments</p>
-  <p v-else class="empty-comments-message">No comments</p>
+  <CommentItem
+    v-for="comment in comments"
+    :comment="comment"
+    :key="comment.id"
+  />
 </template>
 
 <script setup lang="ts">
+import CommentItem from '@/components/CommentItem';
 import { Comment } from '@/types';
 
 interface Props {
