@@ -52,7 +52,6 @@ import UsernamePost from '@/components/UsernamePost.vue';
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 120px;
 }
 
 .send-button {
