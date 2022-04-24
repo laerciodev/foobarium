@@ -10,15 +10,16 @@
   <article class="article">
     {{ post?.body }}
   </article>
+  <CommentPost />
 </template>
 
 <script setup lang="ts">
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
-import BackButtonSVG from '@/assets/back-button.svg';
 import UsernamePost from '@/components/UsernamePost.vue';
-import { Post } from '@/types'
+import CommentPost from '@/components/CommentPost.vue';
+import BackButtonSVG from '@/assets/back-button.svg';
 
 const store = useStore();
 const route = useRoute();
