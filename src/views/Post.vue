@@ -1,6 +1,6 @@
 <template>
   <div @click="goToHome" class="back-button">
-    <BackButtonSVG />
+    <BackButtonIcon width="16px" height="16px" />
     Back
   </div>
   <h2 class="title">
@@ -21,7 +21,7 @@ import { useRoute, useRouter } from 'vue-router';
 import UsernamePost from '@/components/UsernamePost.vue';
 import CommentPost from '@/components/CommentPost.vue';
 import CommentsList from '@/components/CommentsList.vue';
-import BackButtonSVG from '@/assets/back-button.svg';
+import BackButtonIcon from '@/components/BackButtonIcon.vue';
 
 const store = useStore();
 const route = useRoute();
