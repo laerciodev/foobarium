@@ -1,4 +1,5 @@
 <template>
+  <HeaderMobile />
   <div class="container-home">
     <Sidebar />
     <main class="main">
@@ -11,10 +12,9 @@
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import Sidebar from '@/components/Sidebar.vue';
-import PostList from '@/views/PostList.vue';
+import HeaderMobile from '@/components/HeaderMobile.vue'
 
 const store = useStore();
-const posts = computed(() => store.getters.getPosts);
 
 onMounted(async () => {
   await store.dispatch('fetchPosts');
