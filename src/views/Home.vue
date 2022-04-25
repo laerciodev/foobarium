@@ -1,7 +1,7 @@
 <template>
-  <HeaderMobile />
+  <HeaderMobile @open-sidebar="toggleSidebar" />
   <div class="container-home">
-    <Sidebar />
+    <Sidebar :open="openSidebar" />
     <main class="main">
       <router-view></router-view>
     </main>
@@ -9,16 +9,21 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import Sidebar from '@/components/Sidebar.vue';
 import HeaderMobile from '@/components/HeaderMobile.vue'
 
 const store = useStore();
+const openSidebar = ref(false);
 
 onMounted(async () => {
   await store.dispatch('fetchPosts');
 });
+
+function toggleSidebar(value: boolean) {
+  openSidebar.value = value;
+}
 
 </script>
 

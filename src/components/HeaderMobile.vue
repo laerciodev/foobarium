@@ -5,7 +5,7 @@
       @click="goToHome"
     />
     <Logo width="235px" height="30px" />
-    <MenuIcon class="menu-icon" />
+    <MenuIcon class="menu-icon" @click="toggleSidebar" />
   </header>
 </template>
 
@@ -15,6 +15,10 @@ import { useRoute, useRouter } from 'vue-router';
 import BackButtonIcon from '@/components/BackButtonIcon.vue';
 import Logo from '@/components/Logo.vue';
 import MenuIcon from '@/components/MenuIcon.vue';
+
+let openSidebar = false;
+
+const emit = defineEmits(['open-sidebar']);
 
 const route = useRoute();
 const router = useRouter();
@@ -28,6 +32,11 @@ watch(
 
 function goToHome() {
   router.push('/')
+}
+
+function toggleSidebar() {
+  openSidebar = !openSidebar;
+  emit('open-sidebar', openSidebar)
 }
 
 </script>
@@ -58,4 +67,3 @@ function goToHome() {
   }
 }
 </style>
-

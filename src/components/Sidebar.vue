@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside :class="['sidebar', !open && 'hide']">
     <div class="container-logo">
       <Logo :width="widthLogo" :height="heightLogo" />
     </div>
@@ -29,6 +29,12 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Logo from '@/components/Logo.vue';
 import Link from '@/components/Link.vue';
+
+interface Props {
+  open: boolean
+}
+
+defineProps<Props>();
 
 const widthLogo = ref('312px');
 const heightLogo = ref('59px');
@@ -62,6 +68,10 @@ onUnmounted(() => {
     left: 0;
     top: 74px;
     height: 100vh;
+
+    &.hide {
+      display: none;
+    }
   }
 }
 
