@@ -66,6 +66,10 @@ function goToHome() {
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 30px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .title {
@@ -79,6 +83,11 @@ function goToHome() {
   text-transform: uppercase;
   padding-top: 38px;
   padding-bottom: 20px;
+
+  @media (max-width: 768px) {
+    padding-top: 0;
+    border-top-width: 0;
+  }
 }
 
 .username-container {
