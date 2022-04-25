@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar">
     <div class="container-logo">
-      <LogoSVG />
+      <Logo />
     </div>
     <div class="border-bottom-logo"></div>
       <div class="container-menu">
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import LogoSVG from '@/assets/logo.svg';
+import Logo from '@/components/Logo.vue';
 import Link from '@/components/Link.vue';
 
 </script>

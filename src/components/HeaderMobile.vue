@@ -1,18 +1,16 @@
 <template>
   <header class="header-mobile-container">
-    <p>
-      Foobarium
-    </p>
-    <input type="checkbox" id="menu-hamburguer"/>
-    <label for="menu-hamburguer">
-      <div class="menu">
-        <span class="hamburguer"></span>
-      </div>
-    </label>
+    <BackButtonIcon class="back-button-icon" />
+    <Logo width="235px" height="30px" />
+    <MenuIcon class="menu-icon" />
   </header>
 </template>
 
 <script setup lang="ts">
+import BackButtonIcon from '@/components/BackButtonIcon.vue';
+import Logo from '@/components/Logo.vue';
+import MenuIcon from '@/components/MenuIcon.vue';
+
 </script>
 
 <style lang="scss" scoped>
@@ -24,63 +22,17 @@
 
   @media (max-width: 768px) {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .back-button-icon {
+    margin-left: 22px;
+  }
+
+  .menu-icon {
+    margin-right: 18px;
   }
 }
-
-
-.hamburguer {
-  position: relative;
-  display: block;
-  background: #FFF;
-  width: 40px;
-  height: 4px;
-  top: 29px;
-  left: 15px;
-  transition: .5s ease-in-out;
-}
-
-.hamburguer:before,
-.hamburguer:after {
-  background: #FFF;
-  display: block;
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: .5s ease-in-out;
-}
-
-.hamburguer:before {
-  top: -10px;
-}
-
-.hamburguer:after {
-  bottom: -10px;
-}
-input:checked ~ ul {
-  opacity: 1;
-}
-input {
-  display: none;
-}
-
-input:checked ~ label .menu {
-  box-shadow: 0 0 0 130vw #fff, 0 0 0 130vh #fff;
-}
-
-input:checked ~ label .hamburguer {
-  transform: rotate(45deg)
-}
-
-input:checked ~ label .hamburguer:before {
-  transform: rotate(90deg);
-  top: 0px;
-}
-
-input:checked ~ label .hamburguer:after {
-  transform: rotate(90deg);
-  bottom: 0px;
-}
-
 </style>
 
