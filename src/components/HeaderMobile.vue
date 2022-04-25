@@ -2,6 +2,7 @@
   <header class="header-mobile-container">
     <BackButtonIcon
       :class="['back-button-icon', isHome && 'hide-back-button']"
+      @click="goToHome"
     />
     <Logo width="235px" height="30px" />
     <MenuIcon class="menu-icon" />
@@ -10,12 +11,13 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import BackButtonIcon from '@/components/BackButtonIcon.vue';
 import Logo from '@/components/Logo.vue';
 import MenuIcon from '@/components/MenuIcon.vue';
 
 const route = useRoute();
+const router = useRouter();
 const isHome = ref(false);
 
 watch(
@@ -23,6 +25,10 @@ watch(
   () => isHome.value = route.path === '/',
   { immediate: true }
 )
+
+function goToHome() {
+  router.push('/')
+}
 
 </script>
 
