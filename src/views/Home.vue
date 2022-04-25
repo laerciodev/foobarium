@@ -33,6 +33,11 @@ onMounted(async () => {
   background: #41434B;
   padding: 50px 60px 0 60px;
   overflow-y: auto;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    padding: 38px 32px 0 48px;
+  }
 }
 
 </style>

@@ -37,6 +37,10 @@ import Link from '@/components/Link.vue';
   background: #545760;
   height: 100%;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .container-logo {

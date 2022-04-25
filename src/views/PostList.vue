@@ -1,17 +1,17 @@
 <template>
   <h2 class="title">posts</h2>
-    <div class="posts-container">
-      <div class="chunk-posts-container"
-        v-for="(chunkPosts, index) in posts"
-        :key="index"
-      >
-        <PostItem
-          v-for="post in chunkPosts"
-          :key="post.id"
-          :post="post"
-        />
+  <div class="posts-container">
+    <div class="chunk-posts-container"
+      v-for="(chunkPosts, index) in posts"
+      :key="index"
+    >
+      <PostItem
+        v-for="post in chunkPosts"
+        :key="post.id"
+        :post="post"
+      />
     </div>
-</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -46,5 +46,9 @@ const posts = computed(() => store.getters.getPosts);
   flex-wrap: wrap;
   gap: 50px;
   margin: 50px 0;
+
+  @media(max-width: 768px) {
+    margin: 38px 0;
+  }
 }
 </style>
